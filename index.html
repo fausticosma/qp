@@ -5,21 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qué Pancito</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.jpg">
 </head>
 <body>
 
     <header>
         <nav class="navbar">
             <h2 class="logo">🥐 Qué Pancito</h2>
-
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pages/tortas.html">Tortas</a></li>
-                <li><a href="pages/cookies.html">Cookies</a></li>
-                <li><a href="pages/postres.html">Postres</a></li>
-                <li><a href="pages/login.html">Login</a></li>
-                <li><a href="pages/registro.html">Registro</a></li>
-            </ul>
+            <ul class="menu" id="navbar"></ul>
         </nav>
 
         <section class="hero">
@@ -32,32 +25,7 @@
     <main>
         <section class="productos">
             <h2>Nuestros favoritos</h2>
-
-            <div class="contenedor-cards">
-                <article class="card">
-                    <img src="assets/img/tortachocolate.jpg" alt="Torta de chocolate">
-                    <h3>Torta de chocolate</h3>
-                    <p>Bizcochuelo húmedo con crema y frutillas.</p>
-                    <span>$8500</span>
-                    <button>Comprar</button>
-                </article>
-
-                <article class="card">
-                    <img src="assets/img/cookiechip.webp" alt="Cookies caseras">
-                    <h3>Cookies caseras</h3>
-                    <p>Cookies con chips de chocolate.</p>
-                    <span>$3500</span>
-                    <button>Comprar</button>
-                </article>
-
-                <article class="card">
-                    <img src="assets/img/chocotorta.jpg" alt="Postre individual">
-                    <h3>Postre individual</h3>
-                    <p>Postre cremoso con dulce de leche.</p>
-                    <span>$4200</span>
-                    <button>Comprar</button>
-                </article>
-            </div>
+            <div class="contenedor-cards" id="contenedor-productos"></div>
         </section>
     </main>
 
@@ -65,5 +33,10 @@
         <p>© 2026 Qué Pancito - Pastelería artesanal</p>
     </footer>
 
+    <script src="assets/js/logout.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/productos.js"></script>
+    <script src="assets/js/cards.js"></script>
+    <script>mostrarProductos()</script>
 </body>
 </html>

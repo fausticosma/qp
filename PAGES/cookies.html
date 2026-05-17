@@ -5,52 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookies - Qué Pancito</title>
     <link rel="stylesheet" href="../assets/css/estilos.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.jpg">
 </head>
 <body>
 
     <nav class="navbar">
         <h2 class="logo">🥐 Qué Pancito</h2>
-
-        <ul class="menu">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="tortas.html">Tortas</a></li>
-            <li><a href="postres.html">Postres</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="registro.html">Registro</a></li>
-        </ul>
+        <ul class="menu" id="navbar"></ul>
     </nav>
 
     <main>
         <section class="productos">
             <h1>Nuestras Cookies</h1>
-
-            <div class="contenedor-cards">
-
-                <article class="card">
-                    <img src="../assets/img/cookiechip.webp" alt="Cookies con chips">
-                    <h3>Cookies con chips</h3>
-                    <p>Cookies caseras con chips de chocolate.</p>
-                    <span>$3500</span>
-                    <button>Comprar</button>
-                </article>
-
-                <article class="card">
-                    <img src="../assets/img/cookieavena.webp" alt="Cookies de avena">
-                    <h3>Cookies de avena</h3>
-                    <p>Cookies suaves de avena con toque de miel.</p>
-                    <span>$3200</span>
-                    <button>Comprar</button>
-                </article>
-
-                <article class="card">
-                    <img src="../assets/img/cookiedulcedeleche.webp" alt="Cookies rellenas">
-                    <h3>Cookies rellenas</h3>
-                    <p>Cookies rellenas con dulce de leche.</p>
-                    <span>$4000</span>
-                    <button>Comprar</button>
-                </article>
-
-            </div>
+            <div class="contenedor-cards" id="contenedor-productos"></div>
         </section>
     </main>
 
@@ -58,5 +25,9 @@
         <p>© 2026 Qué Pancito - Pastelería artesanal</p>
     </footer>
 
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/productos.js"></script>
+    <script src="../assets/js/cards.js"></script>
+    <script>mostrarProductos("cookies")</script>
 </body>
 </html>

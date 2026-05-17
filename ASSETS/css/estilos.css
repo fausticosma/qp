@@ -129,7 +129,24 @@ body {
     background-color: #e8a5c0;
     color: white;
 }
+.card-acciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
 
+.contador {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contador button {
+    padding: 6px 12px;
+    border-radius: 50%;
+}
 footer {
     background-color: #5a2d2d;
     color: white;

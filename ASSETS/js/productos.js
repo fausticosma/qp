@@ -1,0 +1,74 @@
+const productos = [
+    {
+        id: 1,
+        nombre: "Torta Oreo",
+        descripcion: "Bizcochuelo de chocolate con crema Oreo.",
+        precio: 9000,
+        imagen: "../assets/img/oreocake.webp",
+        categoria: "tortas"
+    },
+    {
+        id: 2,
+        nombre: "Cheesecake",
+        descripcion: "Base crocante con frutos rojos.",
+        precio: 8500,
+        imagen: "../assets/img/cheesecakefrutosrojos.jpg",
+        categoria: "tortas"
+    },
+    {
+        id: 3,
+        nombre: "Torta Matilda",
+        descripcion: "Bizcochuelo húmedo con crema, relleno con ganache de chocolate y dulce de leche.",
+        precio: 8500,
+        imagen: "../assets/img/tortachocolate.jpg",
+        categoria: "tortas"
+    },
+    {
+        id: 4,
+        nombre: "Cookies con chips",
+        descripcion: "Cookies caseras con chips de chocolate.",
+        precio: 3500,
+        imagen: "../assets/img/cookiechip.webp",
+        categoria: "cookies"
+    },
+    {
+        id: 5,
+        nombre: "Cookies de avena",
+        descripcion: "Cookies suaves de avena con toque de miel.",
+        precio: 3200,
+        imagen: "../assets/img/cookieavena.webp",
+        categoria: "cookies"
+    },
+    {
+        id: 6,
+        nombre: "Cookies rellenas",
+        descripcion: "Cookies rellenas con dulce de leche.",
+        precio: 4000,
+        imagen: "../assets/img/cookiedulcedeleche.webp",
+        categoria: "cookies"
+    },
+    {
+        id: 7,
+        nombre: "Chocotorta",
+        descripcion: "Postre clásico con dulce de leche y queso crema.",
+        precio: 4500,
+        imagen: "../assets/img/chocotorta.jpg",
+        categoria: "postres"
+    },
+    {
+        id: 8,
+        nombre: "Tiramisú",
+        descripcion: "Postre cremoso con café, vainillas y cacao.",
+        precio: 4800,
+        imagen: "../assets/img/tiramisú.jpg",
+        categoria: "postres"
+    },
+    {
+        id: 9,
+        nombre: "Lemon Pie",
+        descripcion: "Base crocante con crema de limón y merengue.",
+        precio: 5000,
+        imagen: "../assets/img/lemonpie.jpg",
+        categoria: "postres"
+    }
+];
