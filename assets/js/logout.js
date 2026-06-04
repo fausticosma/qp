@@ -1,4 +1,4 @@
 function cerrarSesion() {
-    localStorage.removeItem("usuario");
-    window.location.href = "../pages/login.html";
+    sessionStorage.removeItem("usuario");
+    window.location.href = "./pages/login.html"; // ✅ ruta relativa desde index
 }
