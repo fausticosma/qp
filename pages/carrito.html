@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Qué Pancito</title>
+    <link rel="stylesheet" href="../assets/css/estilos.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.jpg">
+    <style>
+        .carrito-page {
+            max-width: 860px;
+            margin: 2rem auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .carrito-page h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #carrito-lista {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .carrito-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #fff;
+            border-radius: 14px;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        }
+
+        .carrito-img {
+            width: 85px;
+            height: 85px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .carrito-info {
+            flex: 1;
+        }
+
+        .carrito-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .carrito-precio-unit {
+            font-size: 0.85rem;
+            color: #a07850;
+            margin-bottom: 0.5rem;
+        }
+
+        .carrito-contador {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .carrito-contador button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid #ddd;
+            background: #f9f4ee;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carrito-contador button:hover { background: #ece4d8; }
+
+        .carrito-contador span {
+            font-weight: 700;
+            min-width: 22px;
+            text-align: center;
+        }
+
+        .carrito-derecha {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .carrito-subtotal {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .btn-eliminar {
+            background: none;
+            border: 1px solid #f5c0b0;
+            color: #c0392b;
+            border-radius: 6px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .btn-eliminar:hover { background: #fdecea; }
+
+        #carrito-resumen {
+            margin-top: 1.5rem;
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        }
+
+        .resumen-total-linea {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.5rem 0;
+        }
+
+        .carrito-botones {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-vaciar {
+            padding: 0.75rem 1.2rem;
+            border: 1.5px solid #ddd;
+            background: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .btn-vaciar:hover { background: #f9f4ee; }
+
+        .btn-finalizar {
+            flex: 1;
+            padding: 0.75rem;
+            background: #c97b3a;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-finalizar:hover { background: #a85e28; }
+
+        #carrito-vacio {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 4rem 1rem;
+            text-align: center;
+            color: #a07850;
+        }
+
+        #carrito-vacio .icono-vacio { font-size: 3.5rem; }
+        #carrito-vacio h2 { color: #3b2a1a; }
+
+        .btn-ver-productos {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.7rem 1.6rem;
+            background: #c97b3a;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .btn-ver-productos:hover { background: #a85e28; }
+
+        @media (max-width: 500px) {
+            .carrito-item { flex-wrap: wrap; }
+            .carrito-derecha {
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h2 class="logo">🥐 Qué Pancito</h2>
+        <ul class="menu" id="navbar"></ul>
+    </nav>
+
+    <main>
+        <section class="carrito-page">
+            <h1>🛒 Tu carrito</h1>
+
+            <div id="carrito-lista"></div>
+
+            <div id="carrito-resumen">
+                <div class="resumen-total-linea">
+                    <span>Total</span>
+                    <span id="carrito-total">$0</span>
+                </div>
+                <div class="carrito-botones">
+                    <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
+                    <button class="btn-finalizar" onclick="finalizarCompra()">Finalizar compra</button>
+                </div>
+            </div>
+
+            <div id="carrito-vacio">
+                <div class="icono-vacio">🧁</div>
+                <h2>Tu carrito está vacío</h2>
+                <p>Todavía no agregaste ningún producto.</p>
+                <a href="tortas.html" class="btn-ver-productos">Ver productos</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Qué Pancito - Pastelería artesanal</p>
+    </footer>
+
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/logout.js"></script>
+    <script src="../assets/js/carrito.js"></script>
+
+</body>
+</html>
