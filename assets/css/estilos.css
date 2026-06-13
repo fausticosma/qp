@@ -8,6 +8,12 @@ body {
     font-family: Arial, sans-serif;
     background-color: #fff8f5;
     color: #5a2d2d;
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .navbar {
@@ -32,6 +38,7 @@ body {
     text-decoration: none;
     color: #5a2d2d;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .menu a:hover {
@@ -61,10 +68,13 @@ body {
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
 .boton:hover {
     background-color: #d989aa;
+    transform: scale(1.05);
 }
 
 .productos {
@@ -90,6 +100,12 @@ body {
     padding: 20px;
     border-radius: 18px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
 }
 
 .card img {
@@ -123,12 +139,15 @@ body {
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .card button:hover {
     background-color: #e8a5c0;
     color: white;
+    transform: scale(1.05);
 }
+
 .card-acciones {
     display: flex;
     justify-content: center;
@@ -147,6 +166,7 @@ body {
     padding: 6px 12px;
     border-radius: 50%;
 }
+
 footer {
     background-color: #5a2d2d;
     color: white;
@@ -170,6 +190,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    animation: fadeIn 0.5s ease-in;
 }
 
 .formulario h2 {
@@ -181,6 +202,12 @@ footer {
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.formulario input:focus {
+    outline: none;
+    border-color: #e8a5c0;
 }
 
 .formulario button {
@@ -190,9 +217,78 @@ footer {
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .formulario button:hover {
     background-color: #e8a5c0;
     color: white;
+    transform: scale(1.03);
+}
+
+/* =============================================
+   RESPONSIVE - Media Queries
+   ============================================= */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .card {
+        width: 220px;
+    }
+
+    .contenedor-cards {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .contenedor-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .formulario {
+        width: 90%;
+    }
 }
