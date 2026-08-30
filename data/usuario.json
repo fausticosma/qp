@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nombre": "Fausti",
+    "apellido": "Cosma",
+    "email": "fausti.cosma@quepancito.com",
+    "contraseña": "fc2026$Pan",
+    "activo": true
+  },
+  {
+    "id": 2,
+    "nombre": "Milagros",
+    "apellido": "Fernández",
+    "email": "milagros.fernandez@gmail.com",
+    "contraseña": "milaPan99!",
+    "activo": true
+  },
+  {
+    "id": 3,
+    "nombre": "Bruno",
+    "apellido": "Alarcón",
+    "email": "bruno.alarcon@hotmail.com",
+    "contraseña": "brunoA_2025",
+    "activo": true
+  },
+  {
+    "id": 4,
+    "nombre": "Camila",
+    "apellido": "Rojas",
+    "email": "camila.rojas@outlook.com",
+    "contraseña": "CamiRojas88",
+    "activo": false
+  },
+  {
+    "id": 5,
+    "nombre": "Nicolás",
+    "apellido": "Pereyra",
+    "email": "nico.pereyra@gmail.com",
+    "contraseña": "nicoP!2024",
+    "activo": true
+  }
+]
