@@ -1,0 +1,5 @@
+# Dependencias de Node.js
+node_modules/
+
+# Directorio de dependencias generadas por npm
+package-lock.json
