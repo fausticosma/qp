@@ -2,6 +2,7 @@
   "name": "que-pancito-server",
   "version": "1.0.0",
   "description": "Servidor Express para la segunda entrega de Qué Pancito",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

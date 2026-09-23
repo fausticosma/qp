@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import { leerData, escribirData, proximoId } from '../utils/db.js';
+
 const router = express.Router();
-const { leerData, escribirData, proximoId } = require('../utils/db');
 
 // GET /api/ventas
 // GET /api/ventas?id_usuario=1
@@ -63,4 +64,5 @@ router.post('/', (req, res) => {
   res.status(201).json(nuevaVenta);
 });
 
-module.exports = router;
+export default router;
+  

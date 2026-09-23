@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import { leerData } from '../utils/db.js';
+
 const router = express.Router();
-const { leerData } = require('../utils/db');
 
 // POST /api/login -> autentica un usuario
 // body: { email, contraseña }
@@ -28,4 +29,4 @@ router.post('/', (req, res) => {
   res.json({ mensaje: 'Login exitoso', usuario: usuarioSinContraseña });
 });
 
-module.exports = router;
+export default router;

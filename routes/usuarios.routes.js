@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import { leerData, escribirData, proximoId } from '../utils/db.js';
+
 const router = express.Router();
-const { leerData, escribirData, proximoId } = require('../utils/db');
 
 // Quita la contraseña antes de mandar el usuario al cliente
 function sinContraseña(usuario) {
@@ -93,8 +94,6 @@ router.delete('/:id', (req, res) => {
     });
   }
 
-  // Si se fuerza, se eliminan también las ventas relacionadas para no dejar
-  // registros huérfanos con un id_usuario que ya no existe
   if (ventasDelUsuario.length > 0 && forzar) {
     const ventasRestantes = ventas.filter((v) => v.id_usuario !== id);
     escribirData('ventas.json', ventasRestantes);
@@ -109,4 +108,4 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;

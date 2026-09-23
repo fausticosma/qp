@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import { leerData } from '../utils/db.js';
+
 const router = express.Router();
-const { leerData } = require('../utils/db');
 
 // GET /api/productos
 // GET /api/productos?categoria=tortas
@@ -31,4 +32,4 @@ router.get('/:id', (req, res) => {
   res.json(producto);
 });
 
-module.exports = router;
+export default router;
