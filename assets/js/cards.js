@@ -1,11 +1,11 @@
 // cards.js — reemplaza al anterior
-// Ahora carga los productos con fetch() desde /data/productos.json
+// Ahora carga los productos con fetch() desde /config.js, que define la constante API_URL según el entorno (local o producción).
 // Todo lo demás (nombres de funciones, HTML de las cards) queda igual
 
 let productos = [];
 
 function mostrarProductos(categoria) {
-    fetch("../data/productos.json")
+    fetch(`${API_URL}/productos`)
         .then(res => {
             if (!res.ok) throw new Error("No se pudo cargar productos.json");
             return res.json();
@@ -98,11 +98,13 @@ function restar(id) {
 }
 
 function agregarAlCarrito(id) {
-    if (!sessionStorage.getItem("usuario")) {
+     if (!sessionStorage.getItem("usuario")) {
         alert("Tenés que iniciar sesión para comprar.");
-        window.location.href = "login.html";
+        const enPages = window.location.pathname.includes("/pages/");
+        window.location.href = enPages ? "login.html" : "pages/login.html";
         return;
     }
+
 
     const cantidadEl = document.getElementById(`cantidad-${id}`);
     const cantidad = parseInt(cantidadEl.innerText);
