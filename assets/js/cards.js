@@ -7,7 +7,7 @@ let productos = [];
 function mostrarProductos(categoria) {
     fetch(`${API_URL}/productos`)
         .then(res => {
-            if (!res.ok) throw new Error("No se pudo cargar productos.json");
+            if (!res.ok) throw new Error("No se pudo cargar los productos");
             return res.json();
         })
         .then(data => {
@@ -41,7 +41,7 @@ function renderizarCards(categoria) {
 }
 
 function mostrarProductosHome() {
-    fetch("data/productos.json")
+    fetch(`${API_URL}/productos`)
         .then(res => {
             if (!res.ok) throw new Error("No se pudo cargar productos.json");
             return res.json();
