@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Qué Pancito</title>
+    <link rel="stylesheet" href="../assets/css/estilos.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.jpg">
+    <style>
+        .filtros { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin: 1rem 0 1.5rem; }
+        .filtro-btn { border: none; padding: 0.6rem 1.2rem; border-radius: 999px; background: #f7c6dc; color: #3b2a1a; font-weight: 600; cursor: pointer; }
+        .filtro-btn.activo { background: #3b2a1a; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h2 class="logo">🥐 Qué Pancito</h2>
+        <ul class="menu" id="navbar"></ul>
+    </nav>
+
+    <main>
+        <section class="productos">
+            <h1>Todos los productos</h1>
+
+            <div class="filtros">
+                <button class="filtro-btn activo" onclick="filtrar('', this)">Todos</button>
+                <button class="filtro-btn" onclick="filtrar('tortas', this)">Tortas</button>
+                <button class="filtro-btn" onclick="filtrar('cookies', this)">Cookies</button>
+                <button class="filtro-btn" onclick="filtrar('postres', this)">Postres</button>
+            </div>
+
+            <div class="contenedor-cards" id="contenedor-productos"></div>
+        </section>
+    </main>
+
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/cards.js"></script>
+    <script>
+        function filtrar(categoria, boton) {
+            document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("activo"));
+            boton.classList.add("activo");
+            cargarProductosFiltrados(categoria);
+        }
+        cargarProductosFiltrados("");
+    </script>
+</body>
+</html>

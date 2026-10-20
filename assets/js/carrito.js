@@ -84,8 +84,49 @@ function vaciarCarrito() {
     }
 }
  
-function finalizarCompra() {
-    alert("¡Gracias por tu compra! 🎉 En breve nos contactamos.");
-    localStorage.removeItem("carrito");
-    renderizarCarrito();
+async function finalizarCompra() {
+    const usuario   = JSON.parse(sessionStorage.getItem("usuario"));
+    const carrito   = JSON.parse(localStorage.getItem("carrito")) || [];
+    const direccion = document.getElementById("direccion").value.trim();
+
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
+
+    if (!direccion) {
+        alert("Ingresá una dirección de entrega.");
+        return;
+    }
+
+    const orden = {
+        id_usuario: usuario.id,
+        dirección: direccion,
+        productos: carrito.map(item => ({
+            id_producto: item.id,
+            cantidad: item.cantidad
+        }))
+    };
+
+    try {
+        const res = await fetch(`${API_URL}/ventas`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(orden)
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            alert(data.error || "No se pudo generar la orden.");
+            return;
+        }
+
+        alert(`¡Gracias por tu compra! Orden #${data.id} por $${data.total.toLocaleString("es-AR")} 🎉`);
+        localStorage.removeItem("carrito");
+        renderizarCarrito();
+    } catch (err) {
+        console.error(err);
+        alert("No se pudo conectar con el servidor.");
+    }
 }

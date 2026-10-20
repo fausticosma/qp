@@ -2,12 +2,7 @@ if (sessionStorage.getItem("usuario")) {
     window.location.href = "../index.html";
 }
 
-const usuarios = [
-    { email: "usuario@quepancito.com", password: "pancito123", nombre: "Usuario" },
-    { email: "admin@quepancito.com",   password: "admin123",   nombre: "Admin" }
-];
-
-function iniciarSesion() {
+async function iniciarSesion() {
     const email    = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const errorEl  = document.getElementById("login-error");
@@ -19,16 +14,25 @@ function iniciarSesion() {
         return;
     }
 
-    const usuario = usuarios.find(u => u.email === email && u.password === password);
+    try {
+        const res = await fetch(`${API_URL}/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, contraseña: password })
+        });
 
-    if (usuario) {
-        sessionStorage.setItem("usuario", JSON.stringify({
-            email: usuario.email,
-            nombre: usuario.nombre
-        }));
+        const data = await res.json();
+
+        if (!res.ok) {
+            mostrarError(data.error || "No se pudo iniciar sesión.");
+            return;
+        }
+
+        sessionStorage.setItem("usuario", JSON.stringify(data.usuario));
         window.location.href = "../index.html";
-    } else {
-        mostrarError("Email o contraseña incorrectos.");
+    } catch (err) {
+        console.error(err);
+        mostrarError("No se pudo conectar con el servidor.");
     }
 }
 
@@ -38,7 +42,3 @@ function mostrarError(msg) {
     errorEl.textContent = msg;
     errorEl.style.display = "block";
 }
-
-document.addEventListener("keydown", e => {
-    if (e.key === "Enter") iniciarSesion();
-});

@@ -25,6 +25,38 @@ function mostrarProductos(categoria) {
         });
 }
 
+function cargarProductosFiltrados(categoria) {
+    const url = categoria
+        ? `${API_URL}/productos?categoria=${categoria}`
+        : `${API_URL}/productos`;
+
+    fetch(url)
+        .then(res => {
+            if (!res.ok) throw new Error("No se pudieron cargar los productos");
+            return res.json();
+        })
+        .then(data => {
+            productos = data;
+            const contenedor = document.getElementById("contenedor-productos");
+            if (!contenedor) return;
+            contenedor.innerHTML = "";
+            if (data.length === 0) {
+                contenedor.innerHTML = "<p>No hay productos en esta categoría.</p>";
+                return;
+            }
+            data.forEach(producto => {
+                contenedor.innerHTML += crearCardHTML(producto, "../");
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            const contenedor = document.getElementById("contenedor-productos");
+            if (contenedor) {
+                contenedor.innerHTML = `<p style="color:red; padding:1rem;">Error al cargar los productos.</p>`;
+            }
+        });
+}
+
 function renderizarCards(categoria) {
     const contenedor = document.getElementById("contenedor-productos");
     if (!contenedor) return;

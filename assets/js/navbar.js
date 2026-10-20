@@ -11,6 +11,7 @@ const linksBase = [
     { titulo: "Tortas",  direccion: `${base}tortas.html` },
     { titulo: "Cookies", direccion: `${base}cookies.html` },
     { titulo: "Postres", direccion: `${base}postres.html` },
+    { titulo: "Productos", direccion: `${base}productos.html` },
 ];
 
 linksBase.forEach(p => {
