@@ -1,4 +1,7 @@
 function cerrarSesion() {
     sessionStorage.removeItem("usuario");
-    window.location.href = "./pages/login.html"; // ✅ ruta relativa desde index
+    sessionStorage.removeItem("token");
+
+    const enPages = window.location.pathname.includes("/pages/");
+    window.location.href = enPages ? "login.html" : "./pages/login.html";
 }
