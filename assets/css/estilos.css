@@ -318,4 +318,48 @@ footer a:hover {
     .formulario {
         width: 90%;
     }
+    .hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1,
+.hero p,
+.hero a {
+  position: relative;
+  z-index: 1;
+}
+
+.pan {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  pointer-events: none;
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 6px rgba(107, 47, 47, 0.15));
+  animation: flotar 5s ease-in-out infinite;
+}
+
+.p1 { top: 14%; left: 8%;   --rot: -14deg; }
+.p2 { top: 58%; left: 17%;  --rot: 12deg;  width: 100px; animation-delay: .6s; }
+.p3 { top: 12%; right: 9%;  --rot: 10deg;  animation-delay: 1.2s; }
+.p4 { top: 52%; right: 15%; --rot: 14deg;  width: 60px; height: 60px; animation-delay: .3s; }
+.p5 { top: 22%; left: 24%;  --rot: -20deg; width: 52px; height: 52px; animation-delay: 1.8s; }
+.p6 { top: 62%; right: 28%; --rot: -8deg;  width: 56px; height: 56px; animation-delay: 2.4s; }
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0) rotate(var(--rot)); }
+  50%      { transform: translateY(-10px) rotate(calc(var(--rot) + 5deg)); }
+}
+
+@media (max-width: 768px) {
+  .p5, .p6 { display: none; }
+  .pan { width: 56px; height: 56px; }
+  .p2 { width: 70px; }
+}
+
+/* respeta a quien no quiere animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .pan { animation: none; transform: rotate(var(--rot)); }
+}
 }

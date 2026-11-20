@@ -5,9 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qué Pancito</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.jpg">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon-192.png">
 </head>
 <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Pan redondo -->
+  <symbol id="pan-redondo" viewBox="0 0 100 100">
+    <path d="M12 62 C12 36 34 22 50 22 C66 22 88 36 88 62 C88 76 70 82 50 82 C30 82 12 76 12 62Z"
+          fill="#f2c38b" stroke="#6b2f2f" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M34 34 Q39 47 33 58 M50 30 Q55 47 50 64 M66 34 Q71 47 65 58"
+          fill="none" stroke="#6b2f2f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M24 56 Q26 46 32 42" fill="none" stroke="#fff6e8" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  </symbol>
+
+  <!-- Baguette -->
+  <symbol id="baguette" viewBox="0 0 100 100">
+    <rect x="6" y="38" width="88" height="26" rx="13"
+          fill="#e9b270" stroke="#6b2f2f" stroke-width="3"/>
+    <path d="M26 43 L34 59 M44 43 L52 59 M62 43 L70 59"
+          fill="none" stroke="#6b2f2f" stroke-width="3" stroke-linecap="round"/>
+    <path d="M16 46 Q20 43 26 43" fill="none" stroke="#fff6e8" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  </symbol>
+
+  <!-- Medialuna -->
+  <symbol id="medialuna" viewBox="0 0 100 100">
+    <path d="M8 68 C12 38 36 24 50 24 C64 24 88 38 92 68 C82 60 76 62 68 68 C60 58 40 58 32 68 C24 62 18 60 8 68Z"
+          fill="#f2c38b" stroke="#6b2f2f" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M50 26 L50 58 M34 33 Q38 47 36 60 M66 33 Q62 47 64 60"
+          fill="none" stroke="#6b2f2f" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Espiga de trigo -->
+  <symbol id="trigo" viewBox="0 0 100 100">
+    <path d="M50 92 L50 24" stroke="#6b2f2f" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <g fill="#f2c38b" stroke="#6b2f2f" stroke-width="2.5" stroke-linejoin="round">
+      <ellipse cx="50" cy="16" rx="6" ry="11"/>
+      <ellipse cx="38" cy="32" rx="6" ry="11" transform="rotate(-35 38 32)"/>
+      <ellipse cx="62" cy="32" rx="6" ry="11" transform="rotate(35 62 32)"/>
+      <ellipse cx="38" cy="52" rx="6" ry="11" transform="rotate(-35 38 52)"/>
+      <ellipse cx="62" cy="52" rx="6" ry="11" transform="rotate(35 62 52)"/>
+    </g>
+  </symbol>
+</svg>
 
     <header>
         <nav class="navbar">
@@ -16,6 +55,13 @@
         </nav>
 
         <section class="hero">
+            <svg class="pan p1"><use href="#pan-redondo"/></svg>
+            <svg class="pan p2"><use href="#baguette"/></svg>
+            <svg class="pan p3"><use href="#medialuna"/></svg>
+            <svg class="pan p4"><use href="#trigo"/></svg>
+            <svg class="pan p5"><use href="#trigo"/></svg>
+            <svg class="pan p6"><use href="#pan-redondo"/></svg>
+
             <h1>Pastelería artesanal hecha con amor</h1>
             <p>Tortas, cookies y postres caseros para endulzar tu día.</p>
             <a href="pages/tortas.html" class="boton">Ver productos</a>
@@ -38,7 +84,7 @@
     </main>
 
     <footer>
-        <p>© 2026 Qué Pancito - Pastelería artesanal</p>
+        <script src="assets/js/footer.js"></script>
     </footer>
 
    <script src="assets/js/config.js"></script>

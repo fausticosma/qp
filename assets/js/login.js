@@ -29,6 +29,7 @@ async function iniciarSesion() {
         }
 
         sessionStorage.setItem("usuario", JSON.stringify(data.usuario));
+        sessionStorage.setItem("token", data.token);
         window.location.href = "../index.html";
     } catch (err) {
         console.error(err);
